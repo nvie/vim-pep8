@@ -1,20 +1,20 @@
 Installation
 ------------
 1. Install [pep8](http://pypi.python.org/pypi/pep8/)
-2. Copy the file `python_vim8.vim` to your `~/.vim/ftplugin` directory
+2. Copy the file `ftplugin/python_pep8.vim` to your `~/.vim/ftplugin` directory
 
 Usage
 -----
 1. Open a Python file
-2. Press `<F5>` to run `pep8` on it
+2. Press `<F6>` to run `pep8` on it
 
 It shows the errors inside a quickfix window, which will allow your to quickly
 jump to the error locations by simply pressing [Enter].
 
 Customization
 -------------
-If you don't want to use the `<F5>` key for PEP8-checking, simply remap it to
+If you don't want to use the `<F6>` key for PEP8-checking, simply remap it to
 another key.  It autodetects whether it has been remapped and won't register
-the `<F5>` key if so.  For example, to remap it to `<F3>` instead, use:
+the `<F6>` key if so.  For example, to remap it to `<F3>` instead, use:
 
     autocmd FileType python map <buffer> <F3> :call Pep8()<CR>
