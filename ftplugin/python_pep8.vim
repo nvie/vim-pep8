@@ -32,7 +32,7 @@ function Pep8()
     endif
 
     " perform the grep itself
-    let &grepformat="%f:%l: E%e %m"
+    let &grepformat="%f:%l:%m"
     let &grepprg=s:pep8_cmd . " --repeat"
     silent! grep! %
 
