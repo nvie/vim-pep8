@@ -33,7 +33,7 @@ if !exists("*Pep8()")
         endif
 
     " perform the grep itself
-    let &grepformat="%f:%l:%m"
+    let &grepformat="%f:%l:%c: %m"
     let &grepprg=s:pep8_cmd . " --repeat"
     silent! grep! %
 
