@@ -32,10 +32,10 @@ if !exists("*Pep8()")
             update
         endif
 
-    " perform the grep itself
-    let &grepformat="%f:%l:%c: %m"
-    let &grepprg=s:pep8_cmd . " --repeat"
-    silent! grep! %
+        " perform the grep itself
+        let &grepformat="%f:%l:%c: %m"
+        let &grepprg=s:pep8_cmd . " --repeat"
+        silent! grep! %
 
         " restore grep settings
         let &grepformat=l:old_gfm
