@@ -13,52 +13,54 @@ let b:loaded_pep8_ftplugin = 1
 
 let s:pep8_cmd="pep8"
 
-function Pep8()
-    if !executable(s:pep8_cmd)
-        echoerr "File " . s:pep8_cmd . " not found. Please install it first."
-        return
-    endif
+if !exists("*Pep8()")
+    function Pep8()
+        if !executable(s:pep8_cmd)
+            echoerr "File " . s:pep8_cmd . " not found. Please install it first."
+            return
+        endif
 
-    set lazyredraw   " delay redrawing
-    cclose           " close any existing cwindows
+        set lazyredraw   " delay redrawing
+        cclose           " close any existing cwindows
 
-    " store old grep settings (to restore later)
-    let l:old_gfm=&grepformat
-    let l:old_gp=&grepprg
+        " store old grep settings (to restore later)
+        let l:old_gfm=&grepformat
+        let l:old_gp=&grepprg
 
-    " write any changes before continuing
-    if &readonly == 0
-        update
-    endif
+        " write any changes before continuing
+        if &readonly == 0
+            update
+        endif
 
-    " perform the grep itself
-    let &grepformat="%f:%l: E%e %m"
-    let &grepprg=s:pep8_cmd . " --repeat"
-    silent! grep! %
+        " perform the grep itself
+        let &grepformat="%f:%l: E%e %m"
+        let &grepprg=s:pep8_cmd . " --repeat"
+        silent! grep! %
 
-    " restore grep settings
-    let &grepformat=l:old_gfm
-    let &grepprg=l:old_gp
+        " restore grep settings
+        let &grepformat=l:old_gfm
+        let &grepprg=l:old_gp
 
-    " open cwindow
-    let has_results=getqflist() != []
-    if has_results
-        execute 'belowright copen'
-        nnoremap <buffer> <silent> c :cclose<CR>
-        nnoremap <buffer> <silent> q :cclose<CR>
-    endif
+        " open cwindow
+        let has_results=getqflist() != []
+        if has_results
+            execute 'belowright copen'
+            nnoremap <buffer> <silent> c :cclose<CR>
+            nnoremap <buffer> <silent> q :cclose<CR>
+        endif
 
-    set nolazyredraw
-    redraw!
+        set nolazyredraw
+        redraw!
 
-    if has_results == 0
-        " Show OK status
-        hi Green ctermfg=green
-        echohl Green
-        echon "PEP8 safe"
-        echohl
-    endif
-endfunction
+        if has_results == 0
+            " Show OK status
+            hi Green ctermfg=green
+            echohl Green
+            echon "PEP8 safe"
+            echohl
+        endif
+    endfunction
+endif
 
 " Add mappings, unless the user didn't want this.
 " The default mapping is registered under to <F6> by default, unless the user
