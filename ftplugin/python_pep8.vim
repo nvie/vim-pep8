@@ -45,6 +45,7 @@ if !exists("*Pep8()")
         let has_results=getqflist() != []
         if has_results
             execute 'belowright copen'
+            setlocal wrap
             nnoremap <buffer> <silent> c :cclose<CR>
             nnoremap <buffer> <silent> q :cclose<CR>
         endif
