@@ -67,7 +67,7 @@ endif
 " The default mapping is registered under to <F6> by default, unless the user
 " remapped it already (or a mapping exists already for <F6>)
 if !exists("no_plugin_maps") && !exists("no_pep8_maps")
-    if !hasmapto('Pep8()')
+    if !hasmapto('Pep8(')
         noremap <buffer> <F6> :call Pep8()<CR>
         noremap! <buffer> <F6> :call Pep8()<CR>
     endif
