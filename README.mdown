@@ -3,6 +3,7 @@ Installation
 1. Install [pep8](http://pypi.python.org/pypi/pep8/)
 2. Copy the file `ftplugin/python_pep8.vim` to your `~/.vim/ftplugin` directory
 
+
 Usage
 -----
 1. Open a Python file
@@ -10,6 +11,7 @@ Usage
 
 It shows the errors inside a quickfix window, which will allow your to quickly
 jump to the error locations by simply pressing [Enter].
+
 
 Customization
 -------------
