@@ -20,3 +20,13 @@ another key.  It autodetects whether it has been remapped and won't register
 the `<F6>` key if so.  For example, to remap it to `<F3>` instead, use:
 
     autocmd FileType python map <buffer> <F3> :call Pep8()<CR>
+
+
+Tips
+----
+This plugin goes well together with the following plugins:
+
+- [PyFlakes](http://github.com/nvie/vim-pyflakes) (Python static syntax checker
+  under `<F7>`)
+- [PyUnit](http://github.com/nvie/vim-pyunit) (unit test helper under `<F8>`
+  and `<F9>`)
