@@ -69,6 +69,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_pep8_maps")
     if !hasmapto('Pep8(')
         noremap <buffer> <F6> :call Pep8()<CR>
-        noremap! <buffer> <F6> :call Pep8()<CR>
+        noremap! <buffer> <F6> <Esc>:call Pep8()<CR>
     endif
 endif
