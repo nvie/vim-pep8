@@ -1,3 +1,6 @@
+vim-pep8 ![Project status](http://stillmaintained.com/nvie/vim-pep8.png)
+========
+
 Installation
 ------------
 1. Install [pep8](http://pypi.python.org/pypi/pep8/)
