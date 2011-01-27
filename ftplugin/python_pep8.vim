@@ -11,6 +11,10 @@ if exists("b:loaded_pep8_ftplugin")
 endif
 let b:loaded_pep8_ftplugin = 1
 
+if !exists("g:pep8_args")
+    let g:pep8_args = ""
+endif
+
 let s:pep8_cmd="pep8"
 
 if !exists("*Pep8()")
@@ -34,7 +38,7 @@ if !exists("*Pep8()")
 
         " perform the grep itself
         let &grepformat="%f:%l:%c: %m"
-        let &grepprg=s:pep8_cmd . " --repeat"
+        let &grepprg=s:pep8_cmd . " --repeat " . g:pep8_args
         silent! grep! %
 
         " restore grep settings
